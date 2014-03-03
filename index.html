@@ -2,20 +2,27 @@
 <head>
 <title>Circliful</title>
 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<link href="css/jquery.circliful.css" rel="stylesheet" type="text/css" /><!-- jquery-plugin-circliful -->
 	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" /><!-- jquery-plugin-circliful -->
-	<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="jChartFX/chartfx.css" />
+
 	
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery.circliful.min.js"></script><!-- jquery-plugin-circliful -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="jChartFX/jchartfx.system.js"></script>
+    <script type="text/javascript" src="jChartFX/jchartfx.coreVector.js"></script>
 
 <style>
 body {
-    font-family: arial,verdana, sans-serif;
-    font-size: 12px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;    
+	font-size: 12px;
+    color: white;
 }
 
 
@@ -29,8 +36,177 @@ body {
 	
 	<div id="myStathalf2" data-dimension="250" data-text="35" data-info="New Clients" data-width="30" data-fontsize="38" data-percent="35" data-fgcolor="#7ea568" data-bgcolor="#eee" data-type="half" data-icon="fa-task"></div>
 	-->
-	
-	<div id="myStat2" data-dimension="250" data-text="35%" data-info="New Clients" data-width="30" data-fontsize="38" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee"></div>
+	<div class="container-fluid" style="background-color: #b3b3b3;">
+		<div class=""> <!-- container -->
+			<div class=""> <!-- navbar -->
+				<div style="background-color: #333;">
+					<img height="100px" width="100px">
+					<img height="100px" width="100px">
+					<img height="100px" width="100px">
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="padding: 10px 0px 10px 10px;"> <!-- sidebarleft -->
+				<div style="background-color:#444;">
+				    <table class="table table-hover" style="color:#b3b3b3; height:100%;">
+				      <tbody>
+				        <tr>
+				          <td>Profile</td>
+				        </tr>
+				        <tr>
+				          <td>Connections</td>
+				        </tr>
+				        <tr>
+				          <td>Settings</td>
+				        </tr>
+				      </tbody>
+				    </table>
+				</div>	
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7" style="padding: 10px 5px 10px 0px;"> <!-- main area -->
+				<div style="margin-bottom:10px;">
+					<p class="lead titles">Overall</p>
+					<ul class="nav nav-pills" style="padding: 10px 5px 10px 10px; background-color:white; border-bottom: 1px solid #ddd;">
+					  <li class="active"><a href="#">University Course</a></li>
+					  <li><a href="#">Modules</a></li>
+					</ul>
+					<div class="container-fluid tabbed-area" style="background-color:white;">
+
+						<div class="col-md-12 col-lg-12" style="">
+							<p class="lead form-headings" >University*: <span><input id="university_1" class="inline-edit" value="Click to Edit"></span></p>
+							<p class="lead form-headings" >Course Title*: <span><input id="course_1" class="inline-edit" value="Click to Edit"></span></p>
+							<p class="lead form-headings" >Degree (eg BA, BEng, BSc.. etc) *: <span><input id="degree_1" class="inline-edit" value="Click to Edit"></span></p>
+							<p class="lead form-headings" >Start (YYYY): <span><input id="startdate_1" class="inline-edit" value="Click to Edit"></span></p>
+							<p class="lead form-headings" >Duration (Years): <span><input id="duration_1" class="inline-edit" value="Click to Edit"></span></p>
+							<p>
+								<a class="btn btn-primary btn-lg" role="button">Update <span class="badge">2</span></a>
+								<a class="btn btn-primary btn-lg" role="button">Modules <span class="badge">2</span></a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<p class="lead titles" style="">Charts</p>
+					<ul class="nav nav-pills" style="padding: 10px 5px 10px 10px; background-color:white; border-bottom: 1px solid #ddd;">
+					  <li class="active"><a href="#">Overall</a></li>
+					  <li><a href="#">Year</a></li>
+					</ul>
+					<div id="ChartDiv" style="width:600px;height:400px;display:inline-block;background-color:white">kjhj</div>
+					<script type="text/javascript" language="javascript">
+					
+					    var chart1;
+					
+					    function loadChart()
+					
+					      {        
+					
+					           chart1 = new cfx.Chart();
+					
+					            chart1.getData().setSeries(2);
+					
+					            chart1.getAxisY().setMin(500);
+					
+					            chart1.getAxisY().setMax(2000);
+					
+					            var series1 = chart1.getSeries().getItem(0);
+					
+					            var series2 = chart1.getSeries().getItem(1);
+					
+					            series1.setGallery(cfx.Gallery.Lines);
+					
+					            series2.setGallery(cfx.Gallery.Bar);
+					
+					            var data = [
+					
+					            { "Month": "Jan", "Bikes": 1800, "Parts": 1300 },
+					
+					            { "Month": "Feb", "Bikes": 1760, "Parts": 900 },
+					
+					            { "Month": "Mar", "Bikes": 1740, "Parts": 970 },
+					
+					            { "Month": "Apr", "Bikes": 1750, "Parts": 1010},
+					
+					            { "Month": "May", "Bikes": 1810, "Parts": 1070 },
+					
+					            { "Month": "Jun", "Bikes": 1920, "Parts": 1180 }
+					
+					            ];
+					
+					            chart1.setDataSource(data);
+					
+					            var divHolder = document.getElementById('ChartDiv');
+					
+					        chart1.create(divHolder);            
+					
+					      }
+					
+					</script>
+
+				</div>
+
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding: 10px 10px 10px 5px;">
+				<p class="lead titles" style="">Overall</p>
+				<div class="" style="background-color:#49619c; margin-bottom:10px;">	
+					<div style="margin-left:auto; margin-right:auto; width:80%;" id="myStat2" data-dimension="250" data-text="75%" data-info="Overall" data-width="10" data-fontsize="38" data-percent="75" data-fgcolor="#b3b3b3" data-bgcolor="#49619c" data-animation-step="2"></div>					
+				</div>
+				<div style="display: block;">				
+					<p class="lead titles" style="">Years</p>
+					<div class="bs-example" style="background-color:#49619c; padding:10px; border: 0;">
+					    <table class="table table-hover" style="color:#b3b3b3;">
+					      <tbody>
+					        <tr>
+					          <td>First Year</td>
+					          <td>Mark</td>
+					        </tr>
+					        <tr>
+					          <td>Second Year</td>
+					          <td>Jacob</td>
+					        </tr>
+					        <tr>
+					          <td>Third Year</td>
+					          <td>Larry</td>
+					        </tr>
+					      </tbody>
+					    </table>
+					</div>
+					<p class="lead titles" style="">Year X Modules</p>
+					<div class="bs-example" style="background-color:#49619c; padding:10px; border: 0;">
+					    <table class="table table-hover" style="color:#b3b3b3;">
+					      <tbody>
+					        <tr>
+					          <td>Intro to Biomed</td>
+					          <td>2:2</td>
+					        </tr>
+					        <tr>
+					          <td>Digital Image .. 1</td>
+					          <td>2:1</td>
+					        </tr>
+					        <tr>
+					          <td>Reading 101</td>
+					          <td>1st</td>
+					        </tr>
+					        <tr>
+					          <td>Words and Pictures</td>
+					          <td>2:2</td>
+					        </tr>
+					        <tr>
+					          <td>Anatomy And Physiology</td>
+					          <td>2:1</td>
+					        </tr>
+					        <tr>
+					          <td>Click to View More</td>
+					          <td></td>
+					        </tr>
+
+					      </tbody>
+					    </table>
+						
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
 
 	<script>
 	$( document ).ready(function() {
